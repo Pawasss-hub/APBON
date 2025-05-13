@@ -10,7 +10,7 @@
                     <div class="icon">
                         <i class="fas fa-list"></i>
                     </div>
-                    <a href="<?= base_url('Category'); ?>" class="small-box-footer">More info <i
+                    <a href="<?= base_url('category'); ?>" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <div class="icon">
                         <i class="fas fa-mail-bulk"></i>
                     </div>
-                    <a href="<?= base_url('Menu'); ?>" class="small-box-footer">More info <i
+                    <a href="<?= base_url('menu'); ?>" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     <div class="icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <a href="<?= base_url('Employee'); ?>" class="small-box-footer">More info <i
+                    <a href="<?= base_url('employee'); ?>" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="icon">
                         <i class="fas fa-cog"></i>
                     </div>
-                    <a href="<?= base_url('Transaction'); ?>" class="small-box-footer">More info <i
+                    <a href="<?= base_url('transaction'); ?>" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>

@@ -9,7 +9,7 @@ use App\Models\CategoryModel;
 use App\Models\EventsModel;
 use App\Models\EventsDateModel;
 use App\Models\KaryawanModel;
-use App\Models\TransaksiModel;
+use App\Models\TransactionModel;
 
 class Admin extends BaseController
 {
@@ -38,6 +38,8 @@ class Admin extends BaseController
         $distribution = $this->distribution->findAll();
         $events = $this->events->getEvents(user()->id);
         $eventDate = $this->date->getEventDate(user()->id);
+        $transactionModel = new TransactionModel();
+        $transactions = $transactionModel->where('pay', 1)->findAll();
 
         $data = [
             'title' => 'Admin',

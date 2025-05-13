@@ -33,13 +33,15 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'username' => 'root',   // Username default XAMPP adalah 'root'
+        'password' => '',       // Password default XAMPP adalah kosong
+        'database' => 'restaurant_ci4',  // Nama database yang kamu buat
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'cacheOn'  => false,
+        'cacheDir' => '',
         'charset'  => 'utf8',
         'DBCollat' => 'utf8_general_ci',
         'swapPre'  => '',
@@ -49,6 +51,7 @@ class Database extends Config
         'failover' => [],
         'port'     => 3306,
     ];
+    
 
     /**
      * This database connection is used when

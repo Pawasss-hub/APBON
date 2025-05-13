@@ -19,19 +19,26 @@ class Login extends MythAuthController
     }
 
     public function index()
-    {
-        if ($this->auth->check()) {
-            $redirectURL = session('redirect_url') ?? site_url('/');
-            unset($_SESSION['redirect_url']);
-
-            return redirect()->to($redirectURL);
+{
+    if ($this->auth->check()) {
+        // Jika user sudah login, arahkan ke halaman sesuai role
+        if (in_groups('admin')) {
+            return redirect()->to(route_to('indexAdmin'));
+        } elseif (in_groups('cashier')) {
+            return redirect()->to(route_to('indexCashier'));
+        } elseif (in_groups('chef')) {
+            return redirect()->to(route_to('indexChef'));
+        } else {
+            return redirect()->to(route_to('indexCustomer'));
         }
-
-        // Set a return URL if none is specified
-        $_SESSION['redirect_url'] = session('redirect_url') ?? previous_url() ?? site_url('/');
-
-        return $this->_render($this->config->views['login'], ['config' => $this->config]);
     }
+
+    // Set URL sebelumnya untuk redirect setelah login
+    $_SESSION['redirect_url'] = session('redirect_url') ?? previous_url() ?? site_url('/');
+
+    return $this->_render($this->config->views['login'], ['config' => $this->config]);
+}
+
 
     public function attemptLogin()
     {

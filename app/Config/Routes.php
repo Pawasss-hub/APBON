@@ -64,7 +64,7 @@ $routes->group('cashier', ['filter' => 'role:cashier'], static function ($routes
     $routes->post('get-distribution', 'Cashier\Order::getDistribution', ['as' => 'getDistributionCashier']);
 
     // Print Pay Order
-    $routes->post('printPemeriksa', 'cashier::printPemeriksa');
+    $routes->post('printPemeriksa', 'Cashier\Order::printPemeriksa');
     $routes->post('printTagihan', 'cashier::printTagihan');
     $routes->post('pembayaranPesanan', 'cashier::pembayaranPesanan');
     $routes->get('printStruk/(:any)', 'cashier::printStruk/$1');
@@ -184,6 +184,14 @@ $routes->group('report', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('report-print-transaction/(:any)/(:any)', 'Report::printTransaction/$1/$2', ['as' => 'reportPrintTransaction']);
     $routes->get('report-excel-transaction/(:any)/(:any)', 'Report::excelTransaction/$1/$2', ['as' => 'reportExcelTransaction']);
 });
+
+// Chef
+$routes->group('', ['filter' => 'role:chef'], static function ($routes) {
+    $routes->get('chef', 'Chef::index', ['as' => 'indexChef']);
+});
+
+$routes->post('chef/update_status/(:num)', 'Chef::update_status/$1');
+
 
 
 /* API */

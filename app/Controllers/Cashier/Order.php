@@ -87,7 +87,7 @@ class Order extends BaseController
                 'change' => str_replace('.', '', $input['change']),
             ];
 
-//            $this->transaction->insert($data);
+            $this->transaction->insert($data);
         }
 
         return $this->response->setJSON([]);
